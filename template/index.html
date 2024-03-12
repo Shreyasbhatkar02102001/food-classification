@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recognition</title>
+</head>
+<body>
+    <h1>Food Recognition</h1>
+    
+    <form action="/classify" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    {% if predicted_class %}
+        <h2>Predicted Class:</h2>
+        <p>{{ predicted_class }}</p>
+        <p>Confidence: {{ confidence }}</p>
+    {% endif %}
+</body>
+</html>
